@@ -189,16 +189,13 @@
         </div>
       </div>
 
-      <!-- Progress Target & Sisa Target -->
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-        <div class="flex justify-between items-center mb-2">
-          <span
-            class="text-xs font-bold text-slate-500 uppercase tracking-wider"
+      <!-- Progress Target & Sisa Target + FORECAST PROYEKSI -->
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider"
             >🎯 Progress Capaian Target</span
           >
-          <span
-            id="targetPercentageText"
-            class="text-sm font-bold text-emerald-600"
+          <span id="targetPercentageText" class="text-sm font-bold text-emerald-600"
             >0%</span
           >
         </div>
@@ -209,7 +206,7 @@
             style="width: 0%"
           ></div>
         </div>
-        <div class="flex justify-between text-xs text-slate-500 mt-2">
+        <div class="flex justify-between text-xs text-slate-500 pt-1">
           <span
             >Terkumpul:
             <b id="progressCurrent" class="text-emerald-600 font-bold"
@@ -227,84 +224,93 @@
             ></span
           >
         </div>
+
+        <!-- NEW: BANNER FORECAST / PROYEKSI AKHIR BULAN -->
+        <div id="forecastBanner" class="mt-2 p-2.5 bg-blue-50/70 border border-blue-100 rounded-lg flex items-center justify-between text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🔮</span>
+            <span class="text-slate-600">Proyeksi Akhir Bulan (Run-Rate Pace): <b id="forecastAmount" class="text-blue-700 font-bold">Rp 0</b></span>
+          </div>
+          <span id="forecastStatus" class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-100 text-blue-800">Menghitung...</span>
+        </div>
       </div>
 
-      <!-- Summary KPI Cards -->
-      <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100"
-        >
-          <p class="text-[11px] font-semibold text-slate-400 uppercase">
+      <!-- Summary KPI Cards (DITAMBAH RATA-RATA DONASI) -->
+      <div class="grid grid-cols-2 md:grid-cols-7 gap-3">
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-[10px] font-semibold text-slate-400 uppercase">
             Total Donasi
           </p>
           <h3
             id="kpiTotalDonasi"
-            class="text-base md:text-lg font-bold text-emerald-600 mt-0.5"
+            class="text-sm md:text-base font-bold text-emerald-600 mt-0.5 truncate"
           >
             Rp 0
           </h3>
         </div>
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100 bg-amber-50/50"
-        >
-          <p class="text-[11px] font-semibold text-amber-700 uppercase">
+        <!-- NEW: AVERAGE DONATION VALUE -->
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 bg-emerald-50/40">
+          <p class="text-[10px] font-semibold text-emerald-800 uppercase">
+            💡 Rata-Rata / Tx
+          </p>
+          <h3
+            id="kpiAvgDonation"
+            class="text-sm md:text-base font-bold text-emerald-700 mt-0.5 truncate"
+          >
+            Rp 0
+          </h3>
+        </div>
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 bg-amber-50/50">
+          <p class="text-[10px] font-semibold text-amber-700 uppercase">
             📅 Target / Hari
           </p>
           <h3
             id="kpiTargetHari"
-            class="text-base md:text-lg font-bold text-amber-600 mt-0.5"
+            class="text-sm md:text-base font-bold text-amber-600 mt-0.5 truncate"
           >
             Rp 0
           </h3>
         </div>
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100 bg-indigo-50/50"
-        >
-          <p class="text-[11px] font-semibold text-indigo-700 uppercase">
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100 bg-indigo-50/50">
+          <p class="text-[10px] font-semibold text-indigo-700 uppercase">
             🗓️ Target / Minggu
           </p>
           <h3
             id="kpiTargetMinggu"
-            class="text-base md:text-lg font-bold text-indigo-600 mt-0.5"
+            class="text-sm md:text-base font-bold text-indigo-600 mt-0.5 truncate"
           >
             Rp 0
           </h3>
         </div>
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100"
-        >
-          <p class="text-[11px] font-semibold text-slate-400 uppercase">
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-[10px] font-semibold text-slate-400 uppercase">
             Total Transaksi
           </p>
           <h3
             id="kpiTotalTransaksi"
-            class="text-base md:text-lg font-bold text-slate-800 mt-0.5"
+            class="text-sm md:text-base font-bold text-slate-800 mt-0.5"
           >
             0
           </h3>
         </div>
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100"
-        >
-          <p class="text-[11px] font-semibold text-slate-400 uppercase">
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-[10px] font-semibold text-slate-400 uppercase">
             Donatur Unik
           </p>
           <h3
             id="kpiDonaturUnik"
-            class="text-base md:text-lg font-bold text-slate-800 mt-0.5"
+            class="text-sm md:text-base font-bold text-slate-800 mt-0.5"
           >
             0
           </h3>
         </div>
-        <div
-          class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100"
-        >
-          <p class="text-[11px] font-semibold text-slate-400 uppercase">
+        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-[10px] font-semibold text-slate-400 uppercase">
             Donatur Repeat
           </p>
           <h3
             id="kpiDonaturRepeat"
-            class="text-base md:text-lg font-bold text-indigo-600 mt-0.5"
+            class="text-sm md:text-base font-bold text-indigo-600 mt-0.5 truncate"
           >
             0 (0%)
           </h3>
@@ -313,9 +319,7 @@
 
       <!-- Grafik Tren Nominal & Jumlah Transaksi Harian -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div
-          class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 md:col-span-2"
-        >
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 md:col-span-2">
           <h4 class="text-sm font-bold text-slate-700 mb-3">
             📈 Tren Donasi Harian (Nominal)
           </h4>
@@ -336,8 +340,8 @@
         </div>
       </div>
 
-      <!-- Charts Row -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Charts Row (DITAMBAH CHART SEGMENTASI DONATUR) -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
           <h4 class="text-sm font-bold text-slate-700 mb-3">
             Donasi per Campaign
@@ -353,6 +357,16 @@
           </h4>
           <div class="relative h-56">
             <canvas id="programChart"></canvas>
+          </div>
+        </div>
+
+        <!-- NEW: CHART SEGMENTASI DONATUR -->
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+          <h4 class="text-sm font-bold text-slate-700 mb-3">
+            💎 Segmentasi Donatur
+          </h4>
+          <div class="relative h-56">
+            <canvas id="tierChart"></canvas>
           </div>
         </div>
 
@@ -541,58 +555,36 @@
     </div>
 
     <script>
-      // 🟢 URL ENDPOINT WEB APP GOOGLE APPS SCRIPT (TETAP SAMA DENGAN DARI GOOGLE SHEET)
       const API_URL = "https://script.google.com/macros/s/AKfycbz1xqCzfugULwwGn0rQVqSYi-Zgd3HPjb8I4LaeFuI7ZD0Fi28pqXBMFwMcfDTrZOw30w/exec?action=api";
 
       let rawData = [];
       let currentFilteredData = [];
 
-      // Target Capaian per Bulan
       const TARGET_MATRIX = {
-        Agustus: {
-          all: 115000000,
-          crm: 115000000,
-          ads: 115000000,
-        },
-        Juli: {
-          all: 115000000,
-          crm: 115000000,
-          ads: 115000000,
-        },
+        Agustus: { all: 115000000, crm: 115000000, ads: 115000000 },
+        Juli: { all: 115000000, crm: 115000000, ads: 115000000 },
       };
 
       let campaignChartObj = null;
       let programChartObj = null;
+      let tierChartObj = null;
       let metodeChartObj = null;
       let trendChartObj = null;
       let dailyTxChartObj = null;
 
-      // Normalisasi Format Tanggal ke "MM-DD"
       function parseDateToMMDD(dateStr) {
         if (!dateStr) return "";
         let str = dateStr.toString().trim();
         if (str.includes("T")) str = str.split("T")[0];
         
-        // Kasus format YYYY-MM-DD
         if (str.includes("-")) {
           const parts = str.split("-");
-          if (parts.length === 3) {
-            const month = parts[1].padStart(2, "0");
-            const day = parts[2].padStart(2, "0");
-            return `${month}-${day}`;
-          }
+          if (parts.length === 3) return `${parts[1].padStart(2, "0")}-${parts[2].padStart(2, "0")}`;
         }
-        
-        // Kasus format DD/MM/YYYY
         if (str.includes("/")) {
           const parts = str.split("/");
-          if (parts.length === 3) {
-            const month = parts[1].padStart(2, "0");
-            const day = parts[0].padStart(2, "0");
-            return `${month}-${day}`;
-          }
+          if (parts.length === 3) return `${parts[1].padStart(2, "0")}-${parts[0].padStart(2, "0")}`;
         }
-        
         return str;
       }
 
@@ -621,7 +613,6 @@
         if (!response) return;
         let list = response.donations || response || [];
         
-        // Pemetaan data mentah dari Sheet
         rawData = list.map((item) => {
           let tglRaw = item.tanggal || item.Tanggal || "";
           let mmdd = parseDateToMMDD(tglRaw);
@@ -655,16 +646,12 @@
         const modal = document.getElementById("exitModal");
         modal.classList.remove("animate-fade-in");
         modal.classList.add("animate-fade-out");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-        }, 200);
+        setTimeout(() => modal.classList.add("hidden"), 200);
       }
 
       function confirmExit() {
         closeExitModal();
-        setTimeout(() => {
-          window.location.href = "about:blank";
-        }, 250);
+        setTimeout(() => window.location.href = "about:blank", 250);
       }
 
       function showToast(icon, title, message, duration = 3000) {
@@ -684,10 +671,8 @@
       }
 
       function handlePrint() {
-        showToast("🖨️", "Menyiapkan Dokumen Print...", "Membuka dialog cetak browser", 1500);
-        setTimeout(() => {
-          window.print();
-        }, 500);
+        showToast("🖨️", "Menyiapkan Dokumen...", "Membuka dialog cetak browser", 1500);
+        setTimeout(() => window.print(), 500);
       }
 
       function handleExport() {
@@ -696,9 +681,7 @@
           return;
         }
         showToast("📥", "Mengunduh Data...", "File CSV sedang di-generate", 2000);
-        setTimeout(() => {
-          exportToCSV();
-        }, 400);
+        setTimeout(() => exportToCSV(), 400);
       }
 
       function exportToCSV() {
@@ -761,37 +744,33 @@
       function renderKPI(data, selectedMonth) {
         const totalDonasi = data.reduce((acc, curr) => acc + (Number(curr.nominal) || 0), 0);
         const totalTransaksi = data.length;
+        const avgDonasi = totalTransaksi > 0 ? Math.round(totalDonasi / totalTransaksi) : 0;
         const categoryValue = document.getElementById("categorySelect").value.toLowerCase();
 
         let targetBulanIni = 115000000;
         let daysInMonth = 31;
 
-        if (selectedMonth === "Agustus") {
+        if (selectedMonth === "Agustus" || selectedMonth === "Juli") {
           daysInMonth = 31;
-          targetBulanIni = (TARGET_MATRIX["Agustus"] && TARGET_MATRIX["Agustus"][categoryValue]) || 115000000;
-        } else if (selectedMonth === "Juli") {
-          daysInMonth = 31;
-          targetBulanIni = (TARGET_MATRIX["Juli"] && TARGET_MATRIX["Juli"][categoryValue]) || 115000000;
+          targetBulanIni = (TARGET_MATRIX[selectedMonth] && TARGET_MATRIX[selectedMonth][categoryValue]) || 115000000;
         } else {
           daysInMonth = 62;
           targetBulanIni = 230000000;
         }
 
         const sisaTarget = Math.max(0, targetBulanIni - totalDonasi);
-
-        // Target Harian & Mingguan
         const targetHariRata = Math.round(targetBulanIni / daysInMonth);
         const targetMingguRata = Math.round(targetHariRata * 7);
 
         const donorMap = {};
+        const datesRecorded = new Set();
         data.forEach((item) => {
           const name = item.namaDonatur ? item.namaDonatur.trim() : "Anonim";
           donorMap[name] = (donorMap[name] || 0) + 1;
+          if (item.tanggal) datesRecorded.add(item.tanggal);
         });
 
         const uniqueDonors = Object.keys(donorMap).length;
-        
-        // Saring Anonim/Hamba Allah dari Perhitungan Repeat Donors agar Akurat
         const repeatDonors = Object.entries(donorMap).filter(([name, count]) => {
           const isAnonymous = name.toLowerCase() === "anonim" || name.toLowerCase() === "hamba allah";
           return !isAnonymous && count > 1;
@@ -799,7 +778,13 @@
 
         const repeatPct = uniqueDonors > 0 ? Math.round((repeatDonors / uniqueDonors) * 100) : 0;
 
+        // KALKULASI PROYEKSI (FORECAST)
+        const daysPassed = datesRecorded.size || 1;
+        const dailyAverageGain = totalDonasi / daysPassed;
+        const forecastTotal = Math.round(dailyAverageGain * daysInMonth);
+
         document.getElementById("kpiTotalDonasi").innerText = "Rp " + totalDonasi.toLocaleString("id-ID");
+        document.getElementById("kpiAvgDonation").innerText = "Rp " + avgDonasi.toLocaleString("id-ID");
         document.getElementById("kpiTargetHari").innerText = "Rp " + targetHariRata.toLocaleString("id-ID");
         document.getElementById("kpiTargetMinggu").innerText = "Rp " + targetMingguRata.toLocaleString("id-ID");
         document.getElementById("kpiTotalTransaksi").innerText = totalTransaksi.toLocaleString("id-ID");
@@ -812,6 +797,17 @@
         document.getElementById("progressCurrent").innerText = "Rp " + totalDonasi.toLocaleString("id-ID");
         document.getElementById("progressSisa").innerText = "Rp " + sisaTarget.toLocaleString("id-ID");
         document.getElementById("progressTarget").innerText = "Rp " + targetBulanIni.toLocaleString("id-ID");
+
+        // RENDER PROYEKSI BANNER
+        document.getElementById("forecastAmount").innerText = "Rp " + forecastTotal.toLocaleString("id-ID");
+        const statusElem = document.getElementById("forecastStatus");
+        if (forecastTotal >= targetBulanIni) {
+          statusElem.innerText = "🚀 Berpotensi Capai Target";
+          statusElem.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800";
+        } else {
+          statusElem.innerText = "⚠️ Potensi Lagging (Push Needed)";
+          statusElem.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800";
+        }
       }
 
       function renderTopDonorsAndLoyalists(data) {
@@ -820,9 +816,7 @@
           const name = item.namaDonatur ? item.namaDonatur.trim() : "Anonim";
           if (name.toLowerCase() === "anonim" || name.toLowerCase() === "hamba allah") return;
 
-          if (!donorMap[name]) {
-            donorMap[name] = { total: 0, count: 0 };
-          }
+          if (!donorMap[name]) donorMap[name] = { total: 0, count: 0 };
           donorMap[name].total += Number(item.nominal || 0);
           donorMap[name].count += 1;
         });
@@ -844,10 +838,10 @@
             const tr = document.createElement("tr");
             tr.className = "hover:bg-slate-50";
             tr.innerHTML = `
-            <td class="p-2 font-medium text-slate-800">${idx + 1}. ${donor.name}</td>
-            <td class="p-2 text-center text-slate-500">${donor.count}x</td>
-            <td class="p-2 text-right font-semibold text-emerald-600">Rp ${donor.total.toLocaleString("id-ID")}</td>
-          `;
+              <td class="p-2 font-medium text-slate-800">${idx + 1}. ${donor.name}</td>
+              <td class="p-2 text-center text-slate-500">${donor.count}x</td>
+              <td class="p-2 text-right font-semibold text-emerald-600">Rp ${donor.total.toLocaleString("id-ID")}</td>
+            `;
             topTbody.appendChild(tr);
           });
         }
@@ -855,7 +849,6 @@
         const loyalDonors = allDonors.filter((d) => d.count > 2).sort((a, b) => b.count - a.count || b.total - a.total);
         const loyalTbody = document.getElementById("loyalDonorsTable");
         loyalTbody.innerHTML = "";
-
         document.getElementById("loyalCountBadge").innerText = loyalDonors.length + " Orang";
 
         if (loyalDonors.length === 0) {
@@ -865,10 +858,10 @@
             const tr = document.createElement("tr");
             tr.className = "hover:bg-slate-50";
             tr.innerHTML = `
-            <td class="p-2 font-medium text-slate-800">${donor.name}</td>
-            <td class="p-2 text-center"><span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded">${donor.count}x</span></td>
-            <td class="p-2 text-right font-semibold text-slate-700">Rp ${donor.total.toLocaleString("id-ID")}</td>
-          `;
+              <td class="p-2 font-medium text-slate-800">${donor.name}</td>
+              <td class="p-2 text-center"><span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded">${donor.count}x</span></td>
+              <td class="p-2 text-right font-semibold text-slate-700">Rp ${donor.total.toLocaleString("id-ID")}</td>
+            `;
             loyalTbody.appendChild(tr);
           });
         }
@@ -896,9 +889,9 @@
             const tr = document.createElement("tr");
             tr.className = "hover:bg-slate-50";
             tr.innerHTML = `
-            <td class="p-2 font-medium text-slate-700 truncate max-w-[150px]">${item.name}</td>
-            <td class="p-2 text-right font-semibold text-amber-600">Rp ${item.total.toLocaleString("id-ID")}</td>
-          `;
+              <td class="p-2 font-medium text-slate-700 truncate max-w-[150px]">${item.name}</td>
+              <td class="p-2 text-right font-semibold text-amber-600">Rp ${item.total.toLocaleString("id-ID")}</td>
+            `;
             lowTbody.appendChild(tr);
           });
         }
@@ -917,7 +910,6 @@
         data.forEach((item) => {
           const tr = document.createElement("tr");
           tr.className = "hover:bg-slate-50 transition-colors";
-
           const aff = (item.affiliate || "").toString().toLowerCase();
           const badgeColor =
             aff === "crm"
@@ -927,14 +919,14 @@
                 : "bg-slate-100 text-slate-600 border-slate-200";
 
           tr.innerHTML = `
-          <td class="p-2.5 text-slate-400">${item.tanggal || "-"}</td>
-          <td class="p-2.5 font-medium text-slate-800">${item.namaDonatur || "-"}</td>
-          <td class="p-2.5">${item.program || "-"}</td>
-          <td class="p-2.5">${item.campaign || "-"}</td>
-          <td class="p-2.5"><span class="px-2 py-0.5 rounded text-[11px] font-bold border uppercase ${badgeColor}">${item.affiliate || "-"}</span></td>
-          <td class="p-2.5"><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-xs">${item.metode || "-"}</span></td>
-          <td class="p-2.5 text-right font-semibold text-slate-700">Rp ${Number(item.nominal || 0).toLocaleString("id-ID")}</td>
-        `;
+            <td class="p-2.5 text-slate-400">${item.tanggal || "-"}</td>
+            <td class="p-2.5 font-medium text-slate-800">${item.namaDonatur || "-"}</td>
+            <td class="p-2.5">${item.program || "-"}</td>
+            <td class="p-2.5">${item.campaign || "-"}</td>
+            <td class="p-2.5"><span class="px-2 py-0.5 rounded text-[11px] font-bold border uppercase ${badgeColor}">${item.affiliate || "-"}</span></td>
+            <td class="p-2.5"><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-xs">${item.metode || "-"}</span></td>
+            <td class="p-2.5 text-right font-semibold text-slate-700">Rp ${Number(item.nominal || 0).toLocaleString("id-ID")}</td>
+          `;
           tbody.appendChild(tr);
         });
       }
@@ -946,20 +938,30 @@
         const trendMap = {};
         const dailyTxCountMap = {};
 
+        // SEGMENTASI TIERING DONATUR
+        const tierMap = { "Mikro (<50k)": 0, "Menengah (50k-500k)": 0, "VIP (>500k)": 0 };
+
         data.forEach((item) => {
+          const nom = Number(item.nominal || 0);
+
           const cName = item.campaign || "Lainnya";
-          campaignMap[cName] = (campaignMap[cName] || 0) + Number(item.nominal || 0);
+          campaignMap[cName] = (campaignMap[cName] || 0) + nom;
 
           const pName = item.program || "Lainnya";
-          programMap[pName] = (programMap[pName] || 0) + Number(item.nominal || 0);
+          programMap[pName] = (programMap[pName] || 0) + nom;
 
           const mName = item.metode || "Lainnya";
-          metodeMap[mName] = (metodeMap[mName] || 0) + Number(item.nominal || 0);
+          metodeMap[mName] = (metodeMap[mName] || 0) + nom;
 
           if (item.tanggal) {
-            trendMap[item.tanggal] = (trendMap[item.tanggal] || 0) + Number(item.nominal || 0);
+            trendMap[item.tanggal] = (trendMap[item.tanggal] || 0) + nom;
             dailyTxCountMap[item.tanggal] = (dailyTxCountMap[item.tanggal] || 0) + 1;
           }
+
+          // Kategori Tiering
+          if (nom < 50000) tierMap["Mikro (<50k)"] += 1;
+          else if (nom <= 500000) tierMap["Menengah (50k-500k)"] += 1;
+          else tierMap["VIP (>500k)"] += 1;
         });
 
         const sortedDates = Object.keys(trendMap).sort();
@@ -970,11 +972,9 @@
           .map((key) => ({ name: key, total: campaignMap[key] }))
           .sort((a, b) => b.total - a.total);
 
-        const campaignLabels = sortedCampaigns.map((item) => item.name);
-        const campaignValues = sortedCampaigns.map((item) => item.total);
-
-        renderCampaignChart(campaignLabels, campaignValues);
+        renderCampaignChart(sortedCampaigns.map((i) => i.name), sortedCampaigns.map((i) => i.total));
         renderProgramChart(Object.keys(programMap), Object.values(programMap));
+        renderTierChart(Object.keys(tierMap), Object.values(tierMap));
         renderMetodeChart(Object.keys(metodeMap), Object.values(metodeMap));
         renderTrendChart(sortedDates, sortedTrendValues);
         renderDailyTxChart(sortedDates, sortedTxCounts);
@@ -1011,31 +1011,54 @@
 
       function renderProgramChart(labels, values) {
         if (programChartObj) programChartObj.destroy();
-        
         const totalAll = values.reduce((a, b) => a + b, 0);
 
         programChartObj = new Chart(document.getElementById("programChart"), {
           type: "doughnut",
           data: {
             labels: labels,
-            datasets: [
-              {
-                data: values,
-                backgroundColor: ["#10b981", "#3b82f6", "#f59e0b", "#8b5cf6", "#ec4899"],
-              },
-            ],
+            datasets: [{ data: values, backgroundColor: ["#10b981", "#3b82f6", "#f59e0b", "#8b5cf6", "#ec4899"] }],
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 10 } } },
+              legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 9 } } },
               tooltip: {
                 callbacks: {
-                  label: function(context) {
-                    const val = context.raw || 0;
+                  label: function(ctx) {
+                    const val = ctx.raw || 0;
                     const pct = totalAll > 0 ? ((val / totalAll) * 100).toFixed(1) : 0;
-                    return ` ${context.label}: Rp ${val.toLocaleString('id-ID')} (${pct}%)`;
+                    return ` ${ctx.label}: Rp ${val.toLocaleString('id-ID')} (${pct}%)`;
+                  }
+                }
+              }
+            },
+          },
+        });
+      }
+
+      function renderTierChart(labels, values) {
+        if (tierChartObj) tierChartObj.destroy();
+        const totalTx = values.reduce((a, b) => a + b, 0);
+
+        tierChartObj = new Chart(document.getElementById("tierChart"), {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [{ data: values, backgroundColor: ["#94a3b8", "#38bdf8", "#f43f5e"] }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 9 } } },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    const val = ctx.raw || 0;
+                    const pct = totalTx > 0 ? ((val / totalTx) * 100).toFixed(1) : 0;
+                    return ` ${ctx.label}: ${val} Tx (${pct}%)`;
                   }
                 }
               }
@@ -1050,18 +1073,13 @@
           type: "pie",
           data: {
             labels: labels,
-            datasets: [
-              {
-                data: values,
-                backgroundColor: ["#6366f1", "#06b6d4", "#10b981", "#f59e0b", "#ef4444"],
-              },
-            ],
+            datasets: [{ data: values, backgroundColor: ["#6366f1", "#06b6d4", "#10b981", "#f59e0b", "#ef4444"] }],
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 10 } } },
+              legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 9 } } },
             },
           },
         });
